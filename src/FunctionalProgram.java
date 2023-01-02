@@ -12,7 +12,8 @@ public class FunctionalProgram {
         while (true) {
             System.out.println("1] 2D ARRAY USE PrintWriter");
             System.out.println("2] SUM OF 3 INT ADD TO ZERO");
-            System.out.println("3] EXIT PROGRAM");
+            System.out.println("3] EUCLIDEAN DISTANCE PROGRAM");
+            System.out.println("4] EXIT PROGRAM");
             System.out.println("ENTER YOUR CHOICE");
             switch (scan.nextInt()) {
                 case 1:
@@ -20,9 +21,16 @@ public class FunctionalProgram {
                     break;
                 case 2:
                     functionalProgram.sumOfThreeAddToZero();
-
                     break;
                 case 3:
+                    int x_Point = Integer.parseInt(args[0]);
+                    int y_Point = Integer.parseInt(args[1]);
+                    double distance;
+                    distance = Math.sqrt(Math.pow(x_Point, 2) + Math.pow(y_Point, 2));
+                    System.out.println("Euclidean distance from (x,y) to the Origin (0,0) is: "
+                            + Math.floor(distance));
+                    break;
+                case 4:
                     System.exit(0);
                     break;
                 default:
