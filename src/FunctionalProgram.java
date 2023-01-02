@@ -13,7 +13,8 @@ public class FunctionalProgram {
             System.out.println("1] 2D ARRAY USE PrintWriter");
             System.out.println("2] SUM OF 3 INT ADD TO ZERO");
             System.out.println("3] EUCLIDEAN DISTANCE PROGRAM");
-            System.out.println("4] EXIT PROGRAM");
+            System.out.println("4] QUADRATIC EQUATION PROGRAM");
+            System.out.println("5] EXIT PROGRAM");
             System.out.println("ENTER YOUR CHOICE");
             switch (scan.nextInt()) {
                 case 1:
@@ -25,18 +26,44 @@ public class FunctionalProgram {
                 case 3:
                     int x_Point = Integer.parseInt(args[0]);
                     int y_Point = Integer.parseInt(args[1]);
-                    double distance;
-                    distance = Math.sqrt(Math.pow(x_Point, 2) + Math.pow(y_Point, 2));
-                    System.out.println("Euclidean distance from (x,y) to the Origin (0,0) is: "
-                            + Math.floor(distance));
+                    functionalProgram.euclideanDistanceCheck(x_Point,y_Point);
                     break;
                 case 4:
+                    int a = Integer.parseInt(args[0]);
+                    int b = Integer.parseInt(args[1]);
+                    int c = Integer.parseInt(args[2]);
+                    functionalProgram.quadraticProblem(a,b,c);
+                    break;
+                case 5:
                     System.exit(0);
                     break;
                 default:
                     System.out.println("WRONG CHOICE");
             }
         }
+    }
+
+    private void quadraticProblem(int a, int b, int c) {
+        System.out.println("Numerical coefficients are \t a = " + a + "\t b = " + b + "\t c = " + c);
+
+        float delta = (b * b) - (4 * a * c);
+        float root1 = (float) (-b + Math.sqrt(delta)) / (2 * a);
+        float root2 = (float) (-b - Math.sqrt(delta)) / (2 * a);
+
+        if (!(delta > 0)) {
+            System.out.println("Roots are not real.\n Try again for another values of a, b, c");
+            return;
+        }
+        System.out.println("First Root of x :  " + root1 + "\nSecond Root of x :  " + root2);
+    }
+
+    private void euclideanDistanceCheck(int x, int y) {
+        int x_Point = x;
+        int y_Point = y;
+        double distance;
+        distance = Math.sqrt(Math.pow(x_Point, 2) + Math.pow(y_Point, 2));
+        System.out.println("Euclidean distance from (x,y) to the Origin (0,0) is: "
+                + Math.floor(distance));
     }
 
     private void sumOfThreeAddToZero() {
